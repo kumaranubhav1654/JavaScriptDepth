@@ -2,7 +2,7 @@
 const arraySample1 = [1,2,4,7,9];
 
 const newArrWithOrigionalMap = arraySample1.map((ele)=>{
-return ele*2;
+    return ele*2;
 })
 console.log(newArrWithOrigionalMap);
 
