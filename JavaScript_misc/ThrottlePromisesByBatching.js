@@ -5,14 +5,14 @@ const p1 = () => {
 })  
 }
 
-const p2 = () =>{
+const p2 = () => {
     return new Promise((res, rej)=>{
     console.log("Executed 2");
     rej("All NOT Good 2");
 })
 }
 
-const p3 = () =>{
+const p3 = () => {
     return new Promise((res, rej)=>{
     console.log("Executed 3");
     setTimeout(()=>{
@@ -21,7 +21,7 @@ const p3 = () =>{
 })
 }
 
-const p4 = ()=>{
+const p4 = () => {
     return new Promise((res, rej)=>{
     console.log("Executed 4");
     setTimeout(()=>{
