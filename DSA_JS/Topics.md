@@ -46,3 +46,17 @@ Promise.all
 EventEmitter
 LRU Cache
 Retry API with Promises
+
+
+
+// | Callback is passed to | Callback return value used?          |
+// | --------------------- | ------------------------------------ |
+// | `map()`               | ✅ Yes (builds a new array)           |
+// | `filter()`            | ✅ Yes (expects `true`/`false`)       |
+// | `reduce()`            | ✅ Yes (becomes the next accumulator) |
+// | `some()`              | ✅ Yes (`true`/`false`)               |
+// | `every()`             | ✅ Yes (`true`/`false`)               |
+// | `find()`              | ✅ Yes (`true`/`false`)               |
+// | `forEach()`           | ❌ Ignored                            |
+// | `setTimeout()`        | ❌ Ignored                            |
+// | `addEventListener()`  | ❌ Ignored (in normal use)            |
