@@ -1,6 +1,35 @@
 // Part 3 (Objects)
 // Deep Clone
 
+const objOrig = {
+    a: 1,
+    b:{
+        c:{
+            d: 4
+        },
+        e:5
+    }
+} 
+
+
+function deepClone(obj){
+    const res = {}
+    
+    for(key in obj){
+        if(typeof obj[key] !== "object") res[key] = obj[key];
+        else{
+            res[key] = deepClone(obj[key]);
+        }
+    }
+    
+    return res;
+}
+
+const objClone = deepClone(objOrig);
+objClone.b.c.d = 9;
+
+console.log("DeepClone with 1 value changed",objClone);
+console.log("Origional",objOrig);
 
 // Deep Equal
 
