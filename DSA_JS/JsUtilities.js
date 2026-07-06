@@ -17,7 +17,7 @@ function debounce(fn , delay = 300){
         if(timerId) clearTimeout(timerId);
         
         timerId = setTimeout(()=>{
-             fn(...args).then(console.log)
+             fn(...args)
         }, delay)
     }
 }
@@ -32,6 +32,8 @@ debounced(3, 5);
 
 function throttle (fn, delay = 300) {
     let executed = false;
+
+    if(executed) return;
     
     return function(...args){
         if(!executed) {
@@ -93,12 +95,13 @@ const arRed = [1,2,4,7,9];
 
 // console.log("OrigReduce", arRed, red)
 
-Array.prototype.myReduce = function(callBackFn){
+Array.prototype.myReduce = function(callBackFn, initialValue){
     
     const arr = this;
-    let result = arr[0];
+    let result = initialValue || arr[0];
+    let key = initialValue ? 0 : 1;
     
-    for(let i = 1; i < arr.length; i++){
+    for(let i = key; i < arr.length; i++){
         result = callBackFn(result, arr[i]);
     }
     
@@ -108,6 +111,6 @@ Array.prototype.myReduce = function(callBackFn){
 
 const red = arRed.myReduce((a,b)=>{
     return a*b;
-});
+}, 0);
 
 console.log("MyReduce", red)
